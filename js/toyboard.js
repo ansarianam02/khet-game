@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
-	var td_width = $('td').width();
+	var td_width = $('td').width()-3;
 	$('.new_piece').width(td_width);
+	 first_time_setup();
 	//alert('td width is '+td_width);
 	var title = $('#inputboardTilte').val();
 	var designer = $('#inputboardDesigner').val();
@@ -131,7 +132,7 @@ $(document).ready(function() {
     }
 	//On selection of radio Button ,step2 is selected_step and previous all are clickable
 	$('#color_choice input').on('click', function() {
-		alert($('input[name=optionsColor]:checked', '#color_choice').val());
+		//alert($('input[name=optionsColor]:checked', '#color_choice').val());
 
 		
 		clearBoard();
@@ -172,6 +173,7 @@ $(document).ready(function() {
 		$('.second_piece').css('background-image', 'url(images/white.png)');
 		$('.second_last_piece').css('background-image', 'url(images/red.png)');
     }
+
      function Option2Board()
     {
     	$('.first_piece').css('background-image', 'url(images/white.png)');
@@ -222,6 +224,18 @@ $(document).on('click', '#append_title', function() {
 
 	//$( "#board_detail" ).clone().attr('id', 'new_board_detail' ).appendTo('.table-responsive');
 	$('#display_board').html($("#board_detail").clone());
+
+	 html2canvas([document.getElementById('toyboard')], {
+    onrendered: function (canvas) {
+        document.getElementById('canvas').appendChild(canvas);
+        var data = canvas.toDataURL('image/png');
+        // AJAX call to send `data` to a PHP file that creates an image from the dataURI string and saves it to a directory on the server
+
+       var image = new Image();
+       image.src = data;
+       document.getElementById('image').appendChild(image);
+    }
+});
 
 });
 $(document).on('click', '#setTitle', function() {
@@ -448,3 +462,12 @@ function getPieceNameFromRow(str) {
 	return getPieceName;
 
 }
+ function first_time_setup()
+    {
+    	$('.border_bg').css('background-image', 'url(images/border_bg.png)');
+		$('.corner_piece').css('background-image', 'url(images/corner_bg.png)');
+    	$('.last_piece').css('background-image', 'url(images/white.png)');
+		$('.first_piece').css('background-image', 'url(images/red.png)');
+		$('.second_piece').css('background-image', 'url(images/white.png)');
+		$('.second_last_piece').css('background-image', 'url(images/red.png)');
+    }

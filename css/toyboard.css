@@ -44,6 +44,14 @@ table.fixed td {
 	color: white;
 	text-align: right;
 }
+.image-checkbox-container input[type="checkbox"]{
+    display: none;
+}
+
+.image-checkbox-container img{
+    border: 0;
+    margin: 4px;
+}
 .drag_drop_option {
 	display: inline-block;
 }
@@ -127,4 +135,27 @@ td {
 .selectedPiece
 {
 	border:2px solid red;
+}
+.sharename img
+{
+	width: 38%;
+height: 36px;
+float: right;
+z-index: 1;
+}
+.sharebutton
+{
+display: inline-block;
+background-color: yellow;
+width: 60.33%;
+margin-top: 5px;
+margin-bottom: auto;
+position: absolute;
+z-index: -1;
+background-color: #C0C0C0;
+}
+.shadow {
+		-webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
 }

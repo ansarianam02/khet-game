@@ -31,6 +31,7 @@
     <script src="js/bootstrap.js"> </script>
     <!-- My Toyboard JS -->
     <script src="js/toyboard.js"> </script>
+    <script src="js/html2canvas.js"></script>
 	
   </head>
   <body>
@@ -77,7 +78,7 @@
 		
 		
 			<!-- Step 1 = choose-color Div  -->
-		<div class="col-md-6" >
+		<div class="col-md-6" style="padding-left:1px">
 		<div id="step1_description" class="description"  style="display: ">
 		<p id="title"> colour_board </p>
 		<br/>
@@ -90,7 +91,9 @@
 			  <div id="colorID" class="caption" class="text-center">
 			  	<div class="radio">
 				  <label>
+				  <span class="image-checkbox-container">
 				    <input type="radio" name="optionsColor" id="optionsRadios1" value="option1" >
+				   </span>
 				  </label>
 				</div>
 			  </div>
@@ -194,7 +197,7 @@
 	
 		
 		<!-- step3 = Name your Board -->
-		<div id="step3_description" style="display: none">
+		<div id="step3_description" class="description" style="display: none">
 		<p id="title"> colour_board </p>
 			
 			<form class="form-horizontal" role="form">
@@ -243,6 +246,51 @@
 		
 		
 		
+	<!-- Step four create Board -->
+		<div id="step3_create" class="description" style="display:none">
+		<p id="title"> create_board </p>
+		<p> Here is your final creation! You can download it,email it and even share it with friends on Facebook 
+		& Twitter. </p>
+        <p> You decide !</p>	
+			
+		<div class="row" >
+		<div class="share_option">
+			<div class="col-md-4 col-md-offset-1">
+			<div class="sharename shadow">
+			<div id="" class="sharebutton"> FaceBook</div>
+			<img src="images/fb.png" width="100%" height:"100%" /> </div>
+			</div>
+			<div class="col-md-4 col-md-offset-2">
+			<div class="sharename shadow">
+			<div id="" class="sharebutton"> Twitter</div>
+			<img src="images/tw.png" width="100%" height:"100%" /> </div>
+			</div>
+			</div> 
+	    </div>
+		<br/>
+		<br/>
+		<br/>
+		<div class="row" >
+		<div class="share_option">
+			<div class="col-md-4 col-md-offset-1">
+			<div class="sharename shadow">
+			<div id="" class="sharebutton"> Download</div>
+			<img src="images/file.png" width="100%" height:"100%" /> </div>
+			</div>
+			
+			<div class="col-md-4 col-md-offset-2">
+			<div class="sharename shadow">
+			<div id="" class="sharebutton"> Email </div>
+			<img src="images/email.png" width="100%" height:"100%" /> </div>
+			</div>
+		</div>
+		
+		</div>	
+		<br/>
+		<br/>
+		<br/>
+		</div> <!-- end of step create-->
+		
 		
 	</div> <!-- End of col-md-6 -->
 	
@@ -257,7 +305,13 @@
 				  </div>
 		 </div>
 	    </div>
-	
+	<div id="canvas">
+    <p>Canvas:</p>
+    </div>
+    
+    <div id="image">
+        <p>Image:</p>
+    </div>
  </div> <!-- container -->
  
   </body>
