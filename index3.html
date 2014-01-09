@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap  Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/jquery-ui.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+	 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
+	
+	<style>
+	
+body {
+    height: 100%;
+	
+}
+.table100, .row, .container, .table-responsive, .table-bordered  {
+    height: 100%;
+}
+#mark
+{
+  border: 1px solid black;
+}
+
+ div#description {
+        background-color: gray;
+      
+        border: 2px solid black;
+    }
+    tr {
+        line-height: 25px;
+        min-height: 25px;
+        height: 45px;
+    }
+	td{
+	padding:0px;
+	}
+    table {
+        height: 100%;
+     }
+   
+	#title
+	{
+     background-color:black;
+	 margin:0px !important;
+	 padding:0px !important;
+	 color:white;
+	 text-align:right;
+	}
+	.drag_drop_option
+	{
+	display:inline-block;
+	}
+	#strip_method
+	{
+	height:20px;
+	}
+	td
+	{
+	
+	}
+	#new_piece
+	{
+	width:45px;
+	height:40px
+	}
+	#new_piecefs
+	{
+	position:absolute;
+	width:45px;
+	top:100px;
+	left:140px;
+	height:45px;
+	border:0px !important;
+	}
+	.inlin
+	{
+	display:inline-block;
+	background-color:gray;
+	height: 45px;
+	border:1px solid black;
+	}
+	#inimg
+	{
+	height: 45px;
+	}
+	#board
+	{
+	border:1px solid black;
+	}
+	
+	</style>
+	<script>
+	$(document).ready(function()
+	{
+	$('.piece').draggable();
+	 $( "td" ).droppable({
+      drop: function( event, ui ) {
+        $( this ).addClass( "ui-state-highlight" );
+      }
+    });
+	
+	});
+	</script>
+  </head>
+  <body>
+  <div class="container">
+	<div id="mark" class="hero-unit">
+		<h1>Marketing stuff!</h1>
+	 
+		<p>Hello Anam Anna!! </p>
+	 
+		<a href="#" class="btn btn-large btn-success">Get Started</a>
+	 </div>
+	 
+	 <br/>
+	 <br/>
+	<div class="row">
+		<div id="board" class="col-md-7 col-xs-10 ">
+		
+					<div class="row">
+					<div class="col-md-1 col-md-offset-1 show-grid inlin">	<img id="inimg" src="images/img1.png" />	</div>	
+					<div class="col-md-1  inlin">	Anam	</div>	
+					<div class="col-md-1  inlin">	Anam	</div>	
+					<div class="col-md-1  inlin">	Anam	</div>	
+					<div class="col-md-1  inlin">	Anam	</div>	
+					<div class="col-md-1  inlin">	Anam	</div>	
+					<div class="col-md-1  inlin">	Anam	</div>	
+					<div class="col-md-1  inlin">	Anam	</div>	
+					<div class="col-md-1  inlin">	Anam	</div>	
+					<div class="col-md-1  inlin">	Anam	</div>	
+					</div>
+					<div class="row">
+					<div class="col-md-1 col-md-offset-1 show-grid inlin">	<img id="inimg" src="images/img1.png" />	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					</div>
+					<div class="row">
+					<div class="col-md-1 col-md-offset-1 show-grid inlin">	<img id="inimg" src="images/img1.png" />	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					</div>
+					<div class="row">
+					<div class="col-md-1 col-md-offset-1 show-grid inlin">	<img id="inimg" src="images/img1.png" />	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					</div>
+					<div class="row">
+					<div class="col-md-1 col-md-offset-1 show-grid inlin">	<img id="inimg" src="images/img1.png" />	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					</div>
+					<div class="row">
+					<div class="col-md-1 col-md-offset-1 show-grid inlin">	<img id="inimg" src="images/img1.png" />	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					</div>
+					<div class="row">
+					<div class="col-md-1 col-md-offset-1 show-grid inlin">	<img id="inimg" src="images/img1.png" />	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					</div>
+					<div class="row">
+					<div class="col-md-1 col-md-offset-1 show-grid inlin">	<img id="inimg" src="images/img1.png" />	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					<div class="col-md-1 show-grid inlin">	Anam	</div>	
+					</div>
+		</div>
+		
+		
+ 		
+		<div class="col-md-5 col-xs-8 " id="description" style=>
+		
+		</div>
+		
+		
+		
+	</div>
+	
+ 
+ 
+ 
+  </body>
+</html>

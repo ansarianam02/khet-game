@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap  Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/jquery-ui.css" rel="stylesheet">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+	 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
+	
+	<style>
+	
+	body {
+		height: 100%;
+		
+	}
+	
+	#mark
+	{
+	  border: 1px solid black;
+	}
+
+	 div#description {
+			background-color: #F2F2F2;		  
+			border: 2px solid black;
+			padding:0px;
+    }
+    .table > tbody > tr > td
+	{
+	padding:0px !important;
+	}
+    table {
+        height: 100%;
+		width:500px;
+     }
+   td
+	{
+	padding-right: 0px !important;
+    padding-left: 0px !important;
+	border:1px solid black;
+	}
+	 tr {
+    height: 40px;
+    }
+	td{
+	padding:0px;
+	}
+	.new_piece
+	{
+	width:50px;
+	height:40px
+	}
+	#title
+	{
+     background-color:black;
+	 margin:0px !important;
+	 padding:0px !important;
+	 color:white;
+	 text-align:right;
+	}
+	.drag_drop_option
+	{
+	display:inline-block;
+	}
+	#strip_method
+	{
+	height:20px;
+	}
+	#toyboard
+	{
+	margin:0px !important;
+	padding:0px !important;
+	}
+	.navbar-brand
+	{
+	color:#000000 !important;
+	}
+	#board_detail
+	{
+	font-family:Courier New Bold;
+	text-align:center;
+	}
+	.designed_by
+	{
+	display:inline
+	}
+	.col-centered
+	{
+    float: none;
+    margin: 0 auto;
+	}
+	</style>
+	<script>
+	$(document).ready(function()
+	{
+	var td_width=$('td').width();
+	$('.new_piece').width(td_width);
+	alert('td width is '+td_width);
+	var title=$('#inputboardTilte').val();
+	var designer=$('#inputboardDesigner').val();
+	
+	$('.piece').draggable({
+	   helper:'clone',
+	   revert: 'invalid',
+		
+	});
+	 $( "td" ).droppable({
+	 accept: ".piece",
+	 drop: handleDrop
+      
+    });
+	
+	function handleDrop(event, ui) { 
+	
+	  alert('hello'+$(this).attr("id"));
+	  var drop_src = ui.draggable.attr("src");
+	  var td_height=$('td').height();
+      //var draggedID = ui.draggable.width(td_width).height(td_height);
+	  
+      //$( this ).addClass( "ui-state-highlight" );
+	  //$( this ).find( "img" ).attr("src",drop_src);
+	  $( this ).html(ui.draggable);
+	   
+    //ui.draggable.draggable('option', 'revert', false);
+	}
+	});
+	
+	$(document).on('click','#append_title',function()
+	{
+	var board_detail_width=$( "#board_detail" ).width();
+	var table_width=$("#topics").width();
+	var placed=(table_width/2)-(board_detail_width/2);
+	
+	//$( "#board_detail" ).clone().attr('id', 'new_board_detail' ).appendTo('.table-responsive');
+	$('#display_board').html($( "#board_detail" ).clone());
+	
+	});
+	$(document).on('click','#setTitle',function()
+	{
+		var title=$('#inputboardTilte').val();
+		$('#board_title').html(title);
+	
+	});
+	$(document).on('click','#setDesigner',function()
+	{
+		var designer=$('#inputboardDesigner').val();
+		$('#board_designer').html(designer);
+	
+	});
+	
+	
+	</script>
+  </head>
+  <body>
+  <div class="container">
+	<!--<button id="help" class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
+    Help button 
+    </button>-->
+	
+	 <br/>
+	 <br/>
+	<div class="row">
+		<div id="toyboard" class="col-md-7 col-xs-10 ">
+		<div class="table-responsive">
+		 <table class="table " id="topics">
+          <tbody>
+            <tr class="row">
+			    <td class="col-md-1 droppable" id="data1">    </td><td class="col-md-1 droppable" id="data1">   </td> <td id="row1-data3" class="col-md-1 droppable">    </td><td id="row1-data4" class="col-md-1 droppable">    </td> <td id="row1-data5" class="col-md-1 droppable">    </td><td id="row1-data6" class="col-md-1 droppable">    </td> <td id="row1-data7" class="col-md-1 droppable">    </td><td id="row1-data8" class="col-md-1 droppable">    </td> <td id="row1-data9" class="col-md-1 droppable">    </td><td class="col-md-1 droppable" class="col-md-1 droppable">    </td>
+		    </tr>
+			  <tr class="row">
+			     <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td>
+		    </tr>
+			  <tr class="row">
+			     <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td>
+		    </tr>
+			  <tr class="row">
+			     <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td>
+		    </tr>
+			  <tr class="row">
+			     <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td>
+		    </tr>
+			  <tr class="row">
+			     <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td>
+		    </tr>
+			  <tr class="row">
+			     <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td>
+		    </tr>
+			  <tr class="row">
+			     <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td> <td class="col-md-1 droppable">    </td><td class="col-md-1 droppable">    </td>
+		    </tr>     
+
+		  </tbody>
+        </table>
+		<div id="display_board"></div>
+				<!--<div class="row" >
+					<div id="board_detail"  >
+					<h1 id="board_title">  Setup one  </h1>
+					<h3 id="board_designer_by" class="designed_by">BY :<h3 id="board_designer" class="designed_by"> Anam </h3></h3>
+					</div>	  
+				</div>-->
+	
+ 		</div><!--Class responsive ends -->
+		</div>
+		
+		
+		<!-- Description Div  -->
+		<div class="col-md-5 col-xs-8" id="description" style=>
+		<p id="title"> SETUP BOARD </p>
+		<p>Click and Drag Piece on the board to theleft. Release the Click to Drop the piece on the desired spot.For every Piece you choose
+		there will be automatically corresponding piece from the opposing color.  </p>
+		
+		<div class="row">
+		  <div class=" col-xs-3">
+			<div class="thumbnail">
+			  <img class="piece ui-widget-content" src="images/Chrysanthemum.jpg" alt="My Image" />
+			  <div class="caption">
+				
+				<p>Lalalala</p>
+			  </div>
+			</div>
+		  </div>
+
+		  <div class="col-xs-3">
+			<div class="thumbnail">
+			  <img class="piece ui-widget-content" src="images/Chrysanthemum.jpg" alt="My Image" />
+			  <div class="caption">
+				
+				<p>Lalalala</p>
+			  </div>
+			</div>
+		  </div>
+
+		  <div class="col-xs-3">
+			<div class="thumbnail">
+			  <img class="piece ui-widget-content" src="images/Chrysanthemum.jpg" alt="My Image" />
+			  <div class="caption">
+				
+				<p>Lalalala</p>
+			  </div>
+			</div>
+		  </div>
+		
+		
+		  <div class="col-xs-3">
+			<div class="thumbnail">
+			  <img class="piece ui-widget-content" src="images/Chrysanthemum.jpg" alt="My Image" />
+			  <div class="caption">
+				
+				<p>Lalalala</p>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		
+		
+		<p> you will be given an option to rotate your Piece One it is placed on the board as well as drag it to a new Place</p>
+		
+		<div class="row">
+		  <div id="strip_method" class=" col-xs-6 col-xs-offset-1"> <img  src="images/Chrysanthemum.jpg" style="height:100%;width:100%"> </img> </div>
+		  <div class=" col-xs-4"> hello </div>
+		  </div>
+		
+		
+		<div class="row">
+		  <div  class=" col-xs-3 "> COLOR </div>
+		  <div  class=" col-xs-3 "> SETUP </div>
+		  <div  class=" col-xs-3 "> NAME </div>
+		  <div  class=" col-xs-3 "> CREATE </div>
+	
+		  </div>
+		</div>
+		
+		
+		
+		
+	</div>
+  </div>
+ 
+ 
+ 
+  </body>
+</html>
