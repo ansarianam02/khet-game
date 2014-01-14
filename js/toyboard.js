@@ -1,12 +1,86 @@
+var data_board;
 $(document).ready(function() {
 
 	var td_width = $('td').width()-3;
 	$('.new_piece').width(td_width);
-	 first_time_setup();
+
+	//On page load setup for player1
+	 Option1Board();
+	 //Make next steup clickable
+	$('.all_steps').removeClass('selected_step nextStep current').addClass('all_steps_common');
+	$('#step2').addClass('clickable current').removeClass('all_steps_common').addClass('selected_step').addClass('nextStep');
+	$(".selected_step").prevAll().addClass('clickable');
 	//alert('td width is '+td_width);
 	var title = $('#inputboardTilte').val();
 	var designer = $('#inputboardDesigner').val();
+	
 
+	//On selection of radio Button ,step2 is selected_step and previous all are clickable
+	$('.checkbox').on('click', function() {
+		//alert($(this).attr('id'));
+         //before applying checked class remove checked from both checkbox
+         $('.checkbox').removeClass('checked');
+		
+		clearBoard();
+		//when any option is selected start work on board
+		//$('.border_bg').css('background-image', 'url(images/border_bg.png)');
+		$('.corner_piece').css('background-image', 'url(images/corner_bg.png)');
+
+		if ($(this).attr('id')  == 'option1') {
+			Option1Board();
+		}
+		if ($(this).attr('id') == 'option2') {
+			Option2Board();
+		}
+		
+		$('.all_steps').removeClass('selected_step nextStep current').addClass('all_steps_common');
+		$('#step2').addClass('clickable current').removeClass('all_steps_common').addClass('selected_step').addClass('nextStep');
+		//$('.description').css('display', 'none');
+		//$('#step2_description').css('display', 'inline');
+		$(".selected_step").prevAll().addClass('clickable');
+
+	});
+	function clearBoard()
+	{
+		$('td').empty();
+		$('td').css('background-image','url()');
+		$('.drop1').attr('id','drop1-3');
+		$('.drop2').attr('id','drop2-3');
+		$('.drop3').attr('id','drop3-3');
+		$('.drop4').attr('id','drop4-3');
+		$('.fadeImg').css('display','none');
+		$('.piece').css('display','block');
+		//background-image: url
+		$('.ramaining').text('3');
+			
+	}
+    function Option1Board()
+    {
+    	//alert('funct 1');
+    	$('.last_piece').css('background-image', 'url(images/white.png)');
+		$('.first_piece').css('background-image', 'url(images/red.png)');
+		$('.second_piece').css('background-image', 'url(images/white.png)');
+		$('.second_last_piece').css('background-image', 'url(images/red.png)');
+		//set corner Piece
+		$('.corner_piece').css('background-image', 'url(images/corner_bg.png)');
+
+    }
+
+     function Option2Board()
+    {
+
+    	//alert('funct 1');
+    	$('.first_piece').css('background-image', 'url(images/white.png)');
+		$('.last_piece').css('background-image', 'url(images/red.png)');
+		$('.second_piece').css('background-image', 'url(images/red.png)');
+		$('.second_last_piece').css('background-image', 'url(images/white.png)');
+		//set corner Piece
+		$('.corner_piece').css('background-image', 'url(images/corner_bg.png)');
+
+    }
+	$(".checkbox").click(function(){
+    $(this).toggleClass('checked')
+	});
 	//wizard load
 
 	$('.piece').draggable({
@@ -35,6 +109,22 @@ $(document).ready(function() {
 		tolerance : "pointer",
 		accept : ".piece",
 		drop : function(event, ui) {
+			 var duration =0;
+			if ($(this).find('img').length) {
+
+				console.log(' image  contains'+$(this).find('img').length);
+			    duration = 300;
+			    $(ui.draggable).draggable('option', 'revertDuration', duration);
+			    $(ui.draggable).draggable('option','revert', true);
+	
+				}
+				else
+			{
+			    
+        // there is an image in this div, do something...
+        console.log('image no contains'+$(this).find('img').length);
+
+    							
 			console.log('ID is '+getcloneIDFromRow(this.id));
 			console.log('Type is '+getPieceNameFromRow(this.id));
 			var td_height = $(this).height();
@@ -81,6 +171,9 @@ $(document).ready(function() {
 			addOppositePiece(getPieceNameFromRow(this.id),getcloneIDFromRow(this.id),duplicateID,OppImagePrtialName);
 			//Check if all Pieces Placed and Next Step is Clickable
 			checkAllplaced();
+			$(ui.draggable).draggable('option','revert', false);
+			}
+		  
 		}
 	});
 	function getCorrespondingImageName(str)
@@ -120,92 +213,45 @@ $(document).ready(function() {
      if(PieceNameFromRow=="row")
      {
      	$('#opp-'+cloneID).empty();
-     	$('#opp-'+cloneID).append("<img src='images/"+OppImagePrtialName+".png' id='dup-"+duplicate+"' class='"+duplicate+"' />");
+     	$('#opp-'+cloneID).append("<img src='images/fade-"+OppImagePrtialName+".png' id='dup-"+duplicate+"' class='"+duplicate+"' />");
      	//.width(td_width).height(td_height)
      }
      if(PieceNameFromRow=="opp")
      {
      	$('#row-'+cloneID).empty();
-     	$('#row-'+cloneID).append("<img src='images/"+OppImagePrtialName+".png' id='dup-"+duplicate+"' class='"+duplicate+"' />");
+     	$('#row-'+cloneID).append("<img src='images/fade-"+OppImagePrtialName+".png' id='dup-"+duplicate+"' class='"+duplicate+"' />");
      }
     	$('.'+duplicate).width(td_width).height(td_height);
     }
-	//On selection of radio Button ,step2 is selected_step and previous all are clickable
-	$('#color_choice input').on('click', function() {
-		//alert($('input[name=optionsColor]:checked', '#color_choice').val());
-
-		
-		clearBoard();
-		//when any option is selected start work on board
-		$('.border_bg').css('background-image', 'url(images/border_bg.png)');
-		$('.corner_piece').css('background-image', 'url(images/corner_bg.png)');
-		if ($('input[name=optionsColor]:checked', '#color_choice').val() == 'option2') {
-			Option2Board();
-		}
-		if ($('input[name=optionsColor]:checked', '#color_choice').val() == 'option1') {
-			Option1Board();
-		}
-		$('.all_steps').removeClass('selected_step nextStep').addClass('all_steps_common');
-		$('#step2').addClass('clickable').removeClass('all_steps_common').addClass('selected_step').addClass('nextStep');
-		$('.description').css('display', 'none');
-		$('#step2_description').css('display', 'inline');
-		$(".selected_step").prevAll().addClass('clickable');
-
-	});
-	function clearBoard()
-	{
-		$('td').empty();
-		$('td').css('background-image','url()');
-		$('.drop1').attr('id','drop1-3');
-		$('.drop2').attr('id','drop2-3');
-		$('.drop3').attr('id','drop3-3');
-		$('.drop4').attr('id','drop4-3');
-		$('.fadeImg').css('display','none');
-		$('.piece').css('display','block');
-		//background-image: url
-		$('.ramaining').text('3');
-			
-	}
-    function Option1Board()
-    {
-    	$('.last_piece').css('background-image', 'url(images/white.png)');
-		$('.first_piece').css('background-image', 'url(images/red.png)');
-		$('.second_piece').css('background-image', 'url(images/white.png)');
-		$('.second_last_piece').css('background-image', 'url(images/red.png)');
-    }
-
-     function Option2Board()
-    {
-    	$('.first_piece').css('background-image', 'url(images/white.png)');
-		$('.last_piece').css('background-image', 'url(images/red.png)');
-		$('.second_piece').css('background-image', 'url(images/red.png)');
-		$('.second_last_piece').css('background-image', 'url(images/white.png)');
-
-
-    }
+	
 	$('.all_steps').on('click', function() {
 		//console.log('step Click'+this.id);
 		if ($(this).hasClass('clickable')) {
 					if(this.id=='step1')
 					{
-						clearBoard();
+						//clearBoard();
 					}
 					
 					if(this.id=='step2')
 					{
-					if ($('input[name=optionsColor]:checked', '#color_choice').val() == 'option2') {
-						Option2Board();
-					}
-					if ($('input[name=optionsColor]:checked', '#color_choice').val() == 'option1') {
-						Option1Board();
-					}					
+						if ($('input[name=optionsColor]:checked', '#color_choice').val() == 'option2') {
+							Option2Board();
+						}
+						if ($('input[name=optionsColor]:checked', '#color_choice').val() == 'option1') {
+							Option1Board();
+						}					
 														
+					}
+
+					if(this.id=='step4')
+					{
+
 					}
 					
 			console.log(this.id + 'yes it is clickable');
 			$('.description').css('display', 'none');
-			$('.all_steps').removeClass('selected_step nextStep').addClass('all_steps_common');
-			$('#' + this.id ).removeClass('all_steps_common').addClass('selected_step nextStep');
+			$('.all_steps').removeClass('selected_step nextStep current').addClass('all_steps_common');
+			$('#' + this.id ).removeClass('all_steps_common').addClass('selected_step nextStep current');
 			$('#' + this.id + '_description').css('display', 'inline');
 		}
 		else{
@@ -218,25 +264,35 @@ $(document).ready(function() {
 
 //Board NAme Functionality
 $(document).on('click', '#append_title', function() {
+	//alert('Append Title');
+	var title = $('#inputboardTilte').val();
+	$('#board_title').html(title);
+
+	var designer = $('#inputboardDesigner').val();
+	$('#board_designer').html(designer);
+	
 	var board_detail_width = $("#board_detail").width();
 	var table_width = $("#topics").width();
 	var placed = (table_width / 2) - (board_detail_width / 2);
 
 	//$( "#board_detail" ).clone().attr('id', 'new_board_detail' ).appendTo('.table-responsive');
-	$('#display_board').html($("#board_detail").clone());
+	$('#display_board').html($("#board_detail").clone().addClass('bannerbg'));
 
 	 html2canvas([document.getElementById('toyboard')], {
     onrendered: function (canvas) {
         document.getElementById('canvas').appendChild(canvas);
         var data = canvas.toDataURL('image/png');
         // AJAX call to send `data` to a PHP file that creates an image from the dataURI string and saves it to a directory on the server
-
+       data_board=data;
        var image = new Image();
        image.src = data;
        document.getElementById('image').appendChild(image);
     }
 });
-
+ //Next step clickable
+    $('.all_steps').removeClass('selected_step nextStep current').addClass('all_steps_common');
+	$('#step4').addClass('clickable current').removeClass('all_steps_common').addClass('selected_step').addClass('nextStep');
+	$(".selected_step").prevAll().addClass('clickable');
 });
 $(document).on('click', '#setTitle', function() {
 	var title = $('#inputboardTilte').val();
@@ -310,7 +366,7 @@ $(document).on('click', '.rotate', function(event) {
 		//set corresponding Image 
 		
 		//rotate corresponding Image
-		$('#dup-'+selectedImageID).attr('src','images/'+pieceName+'-'+new_directionChange+'.png');
+		$('#dup-'+selectedImageID).attr('src','images/fade-'+pieceName+'-'+new_directionChange+'.png');
 		
 	}
 	if(direction==3)
@@ -321,7 +377,7 @@ $(document).on('click', '.rotate', function(event) {
 		directionChange=4;
 		$('.selectedPiece').attr('src','images/'+pieceName+'-'+directionChange+'.png');
 		//rotate corresponding Image
-		$('#dup-'+selectedImageID).attr('src','images/'+pieceName+'-'+new_directionChange+'.png');
+		$('#dup-'+selectedImageID).attr('src','images/fade-'+pieceName+'-'+new_directionChange+'.png');
 		
 	}
 	if(direction==1)
@@ -332,7 +388,7 @@ $(document).on('click', '.rotate', function(event) {
 		directionChange=2;
 		$('.selectedPiece').attr('src','images/'+pieceName+'-'+directionChange+'.png');
 		//rotate corresponding Image
-		$('#dup-'+selectedImageID).attr('src','images/'+pieceName+'-'+new_directionChange+'.png');
+		$('#dup-'+selectedImageID).attr('src','images/fade-'+pieceName+'-'+new_directionChange+'.png');
 		
 	}
 	if(direction==2)
@@ -343,7 +399,7 @@ $(document).on('click', '.rotate', function(event) {
 		directionChange=3;
 		$('.selectedPiece').attr('src','images/'+pieceName+'-'+directionChange+'.png');
 		//rotate corresponding Image
-		$('#dup-'+selectedImageID).attr('src','images/'+pieceName+'-'+new_directionChange+'.png');
+		$('#dup-'+selectedImageID).attr('src','images/fade-'+pieceName+'-'+new_directionChange+'.png');
 		
 	}
 	
@@ -376,6 +432,25 @@ $(document).on('click', '#btn_righttt', function(event) {
 		
 	}
 	
+});
+
+$(document).on('click','#download',function()
+{
+	
+
+	 console.log('data'+data_board);
+$.ajax({
+  type: "POST",
+  url: 'download.php',
+  data: {
+  image: data_board
+  },
+   success:function(data)   { 
+   	window.location ="download_image.php";
+  
+}
+});//End of Ajax
+
 });
 
 function getPieceNameFromPath(str)

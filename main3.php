@@ -40,7 +40,7 @@
 	 <br/>
 	 <br/>
 	<div class="row">
-		<div id="toyboard" class="col-md-6">
+		<div id="toyboard" class="col-md-5 col-md-offset-1 top">
 		<div class="table-responsive">
 		 <table class="table fixed" id="topics">
          <tbody>
@@ -78,9 +78,10 @@
 		
 		
 			<!-- Step 1 = choose-color Div  -->
-		<div class="col-md-6" style="padding-left:1px">
+		<div class="col-md-5 top" style="">
 		<div id="step1_description" class="description"  style="display: ">
 		<p id="title"> colour_board </p>
+		<div class="center_part" >
 		<br/>
 		<p>Choose what colour you want to be this will determine the direction of the board.  </p>
 		<form id="color_choice">
@@ -89,13 +90,9 @@
 			<div class="thumbnail">
 			  <img id="color1" class="colorchoice " src="images/color1.png" alt="My Image" />
 			  <div id="colorID" class="caption" class="text-center">
-			  	<div class="radio">
-				  <label>
-				  <span class="image-checkbox-container">
-				    <input type="radio" name="optionsColor" id="optionsRadios1" value="option1" >
-				   </span>
-				  </label>
-				</div>
+			  	<div id="option1" class="checkbox checked">
+ 				 </div>
+
 			  </div>
 			</div>
 		  </div>
@@ -105,9 +102,10 @@
 			  <img id="color1" class="colorchoice " src="images/color2.png" alt="My Image" />
 			  <div id="colorID" class="caption" class="text-center">
 			  	<div class="radio">
-				  <label>
-				    <input type="radio" name="optionsColor" id="optionsRadios2" value="option2" >
-				  </label>
+				  
+				  <div id="option2" class="checkbox">
+  				  </div>
+
 				</div>
 			  </div>
 			</div>
@@ -118,7 +116,7 @@
 		</div>
 			
 		<br/>
-			
+		</div>	
 		</div> <!-- Color Setup -->
 
 		
@@ -126,11 +124,12 @@
 
 		<div id="step2_description" class="description" style="display: none">
 		<p id="title"> SETUP BOARD </p>
+		<div class="center_part" >
 		<p>Click and Drag Piece on the board to theleft. Release the Click to Drop the piece on the desired spot.For every Piece you choose
 		there will be automatically corresponding piece from the opposing color.  </p>
 		
 		<div class="row">
-		  <div class=" col-xs-3">
+		  <div class=" col-md-3">
 			<div id="thumb1" class="thumbnail_disp">
 			  <div id="drop1-name" class="caption piece_name"> ANUBIS </div>
 			  <img id="drop1-3" class="drop1 piece ui-widget-content" src="images/drop1-1.png" alt="My Image" />
@@ -141,7 +140,7 @@
 			</div>
 		  </div>
 
-		  <div class="col-xs-3">
+		  <div class="col-md-3">
 			<div class="thumbnail_disp">
 			  <div id="drop2-name" class="caption piece_name"> PYRAMID </div>
 			  <img id="drop2-3" class="drop2 piece ui-widget-content" src="images/drop2-1.png" alt="My Image" />
@@ -152,7 +151,7 @@
 			</div>
 		  </div>
 
-		  <div class="col-xs-3">
+		  <div class="col-md-3">
 			<div class="thumbnail_disp">
 				<div id="drop3-name" class="caption piece_name"> SCARAB </div>
 			  <img id="drop3-3" class="drop3 piece ui-widget-content" src="images/drop3-1.png" alt="My Image" />
@@ -164,7 +163,7 @@
 		  </div>
 		
 		
-		  <div class="col-xs-3">
+		  <div class="col-md-3">
 			<div class="thumbnail_disp">
 			  <div id="drop4-name" class="caption piece_name"> PHAROHA </div>
 			  <img id="drop4-3" class="drop4 piece ui-widget-content" src="images/drop4-1.png" alt="My Image" />
@@ -180,75 +179,82 @@
 		<p> you will be given an option to rotate your Piece One it is placed on the board as well as drag it to a new Place</p>
 		
 		<div class="row">
-		  <div class="col-md-3 col-md-offset-1">
+		  <div id="before_strip" class="col-md-3 col-md-offset-1">
 		  <div id="strip_method" >
-		 
-		  	 <img id="btn_left" class="rotate" src="images/right.png" > </img>
-		  	 <img id="btn_right" class="rotate" src="images/left.png" > </img>
-		  
+		     <div id="strip_method_inside">
+		  	<img id="btn_left" class="rotate" src="images/right.png" > </img>
+		  	<img id="btn_right" class="rotate" src="images/left.png" > </img>
+		  	</div>
+		  	 <p id="rotate_title"> 1/4 Turn </p>
 		  </div> <!--End of strip Method-->
+		
 		  </div>  <!-- End of col-md-3 -->
 		  <div class=" col-md-5 col-md-offset-3"> hello </div>
 		
 		  </div>
 		
 		</div>
+		</div>
 		
 	
 		
 		<!-- step3 = Name your Board -->
-		<div id="step3_description" class="description" style="display: none">
+		<div id="step3_description" class="description" style="display:none">
 		<p id="title"> colour_board </p>
 			
-			<form class="form-horizontal" role="form">
-			
-				  <div class="form-group">
-					<label for="inputBoardName" class="col-lg-2 control-label">Board Name</label>
-					<div class="col-lg-10">
-					  <input type="text" class="form-control" id="inputboardTilte" placeholder="Insert Text Here">
+			<div class="center_part" >
+					<br/>
+				<div class="row">
+
+					<div class="col-md-4">
+					<label for="inputBoardName" class="control-label">Board Name</label>
 					</div>
-				  </div>
-				  
-				   <div class="form-group">
-					<div class="col-lg-offset-2 col-lg-10">
-					 <button type="button" id="setTitle"  class="btn btn-success">PREV</button>
+
+					<div class="col-md-4">
+					<input type="text" class="form-control"  id="inputboardTilte" placeholder="">
 					</div>
-				  </div>
-				  
-				  <div class="form-group">
-					<label for="inputName" class="col-lg-2 control-label">Name</label>
+					<br/><br/>
+					<div class="col-md-12">
+					<button type="button" id="setTitle" class="btn btn-default prevbutton"> Prev </button>
+					</div>
+
+					<br/>
+					<br/>
+					<div class="col-md-4">
+					<label for="inputBoardName" class="control-label">Name</label>
+					</div>
+
+					<div class="col-md-4">
+					<input type="text" class="form-control" id="inputboardDesigner" placeholder="">
+					</div>
+					<br/><br/>
+					<div class="col-md-12">
+					<button type="button" id="setDesigner" class="btn btn-default prevbutton"> Prev</button>
+					</div>
 					
-					<div class="col-lg-10">
-					  <input type="text" class="form-control" id="inputboardDesigner" placeholder="Insert Text Here">
-					</div>
-				  </div>
+			    </div>
 				
-				  <div class="form-group">
-					<div class="col-lg-offset-2 col-lg-10">
-					  <button type="button" id="setDesigner"  class="btn btn-success">PREV</button>
-					</div>
-				  </div>
-				</form>
-				
-				<h5> Here is how Your Information will Appear </h5>
+				<h5 id="board_para"> Here is how Your Information will Appear </h5>
 				<div class="row" >
 				<div id="board_detail"  >
-				<h3 id="board_title">  Insert Text Here  </h3>
-				<h4 id="board_designer_by" class="designed_by">BY :<h4 id="board_designer" class="designed_by"> Insert Text Here </h4></h4>
+				<h2 id="board_title" class="b_title">  INSERT TEXT HERE </h2>
+				<h3 id="board_designer_by" class="designed_by b_title">BY :<h3 id="board_designer" class="designed_by">  INSERT TEXT HERE </h3></h3>
 				</div>	  
 				</div>
 				
 				<div class="row" style="text-align:center">
-						  <button id="append_title" type="submit" class="btn btn-default">SUBMIT</button>
+				<button type="button" id="append_title" class="btn btn-default"> SUBMIT</button>
 				</div>
 		 
+		</div>
 		</div>
 		
 		
 		
 	<!-- Step four create Board -->
-		<div id="step3_create" class="description" style="display:none">
+		<div id="step4_description" class="description" style="display:none">
 		<p id="title"> create_board </p>
+		<div class="center_part" >
 		<p> Here is your final creation! You can download it,email it and even share it with friends on Facebook 
 		& Twitter. </p>
         <p> You decide !</p>	
@@ -257,12 +263,12 @@
 		<div class="share_option">
 			<div class="col-md-4 col-md-offset-1">
 			<div class="sharename shadow">
-			<div id="" class="sharebutton"> FaceBook</div>
+			<div  class="sharebutton"> FaceBook</div>
 			<img src="images/fb.png" width="100%" height:"100%" /> </div>
 			</div>
 			<div class="col-md-4 col-md-offset-2">
 			<div class="sharename shadow">
-			<div id="" class="sharebutton"> Twitter</div>
+			<div  class="sharebutton"> Twitter</div>
 			<img src="images/tw.png" width="100%" height:"100%" /> </div>
 			</div>
 			</div> 
@@ -272,15 +278,15 @@
 		<br/>
 		<div class="row" >
 		<div class="share_option">
-			<div class="col-md-4 col-md-offset-1">
-			<div class="sharename shadow">
-			<div id="" class="sharebutton"> Download</div>
+			<div id="download" class="col-md-4 col-md-offset-1">
+			<div  class="sharename shadow">
+			<div class="sharebutton"> Download</div>
 			<img src="images/file.png" width="100%" height:"100%" /> </div>
 			</div>
 			
 			<div class="col-md-4 col-md-offset-2">
 			<div class="sharename shadow">
-			<div id="" class="sharebutton"> Email </div>
+			<div  class="sharebutton"> Email </div>
 			<img src="images/email.png" width="100%" height:"100%" /> </div>
 			</div>
 		</div>
@@ -289,27 +295,47 @@
 		<br/>
 		<br/>
 		<br/>
+		</div>
 		</div> <!-- end of step create-->
 		
 		
 	</div> <!-- End of col-md-6 -->
-	
+	<div class="col-md-1" ></div>
+
 	<div class="row">
-		<div class="col-md-6"></div>
-		 <div class="col-md-6" >
-		 	<div class="progressbar">	
-				  <div id="step1" class="all_steps all_steps_common col-md-2 "> COLOR <span class="chevron"></span></div>
-				  <div id="step2" class="all_steps all_steps_common col-md-2 col-md-offset-1"> SETUP <span class="chevron"></span></div>
-				  <div id="step3" class="all_steps all_steps_common col-md-2 col-md-offset-1"> NAME <span class="chevron"></span></div>
-				  <div id="step4" class="all_steps all_steps_common col-md-2 col-md-offset-1"> CREATE <span class="chevron"></span></div>
-				  </div>
+		<div class="col-md-5 col-md-offset-1 " ></div>
+		 <div  class="wizard col-md-5" >
+		 		<div class="wizardbar progressbar">
+					  <a  id="step1"  class="all_steps all_steps_common col-md-2 wizardbar-item current">
+					    COLOR
+					  </a>
+					  <a  id="step2" class="all_steps all_steps_common col-md-2 col-md-offset-1 wizardbar-item " >
+					    STEP
+					  </a>
+					  <a id="step3"  class="all_steps all_steps_common col-md-2 col-md-offset-1 wizardbar-item">
+					    NAME
+					  </a>
+					  <a id="step4" class="all_steps all_steps_common col-md-2 col-md-offset-1 wizardbar-item" >
+					    CREATE
+					  </a>
+				</div>
+
+
+
+		 <!--	<div class="progressbar">	
+				  <div id="step1" class="all_steps all_steps_common col-md-2 "> COLOR </div>
+				  <div id="step2" class="all_steps all_steps_common col-md-2 col-md-offset-1"> SETUP </div>
+				  <div id="step3" class="all_steps all_steps_common col-md-2 col-md-offset-1"> NAME </div>
+				  <div id="step4" class="all_steps all_steps_common col-md-2 col-md-offset-1"> CREATE </div>
+				  </div>-->
 		 </div>
+		 <div class="col-md-1" ></div>
 	    </div>
-	<div id="canvas">
+	<div id="canvas" style="display:none">
     <p>Canvas:</p>
     </div>
     
-    <div id="image">
+    <div id="image" style="display:none">
         <p>Image:</p>
     </div>
  </div> <!-- container -->

@@ -326,9 +326,9 @@ a {
 
 a:hover,
 a:focus {
-  color: #2a6496;
+ /* color: #2a6496;
   text-decoration: underline;
-}
+*/}
 
 a:focus {
   outline: thin dotted;
@@ -904,7 +904,16 @@ pre code {
   padding-right: 15px;
   padding-left: 15px;
 }
-
+.wizard.col-md-5
+{
+  /* padding-right: 0px !important;
+  */padding-left: 1px !important;
+}
+.top.col-md-5
+{
+   padding-right: 0px !important;
+  padding-left: 1px !important;
+}
 .col-xs-1,
 .col-xs-2,
 .col-xs-3,
@@ -1339,9 +1348,13 @@ pre code {
   .col-md-3 {
     width: 25%;
   }
+  #before_strip.col-md-3
+  {
+   width:20%;
+  }
   .all_steps.col-md-2
   {
-   width: 21.666666666666664%;
+   width: 22.22666666666666664%;
   }
   .all_steps.col-md-offset-1
   {
